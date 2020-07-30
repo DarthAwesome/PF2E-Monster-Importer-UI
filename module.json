@@ -4,7 +4,7 @@
 	"description": "Provides a UI to import monsters into PF2E worlds",
 	"version": "1.0.0",
 	"minimumCoreVersion": "0.6.0",
-	"compatibleCoreVersion": "0.6.0",
+	"compatibleCoreVersion": "0.6.5",
 	"author": "Farhan Siddiqi",
 	"systems": ["pf2e"],
 	"scripts": ["scripts/anvil-menu.js"],
