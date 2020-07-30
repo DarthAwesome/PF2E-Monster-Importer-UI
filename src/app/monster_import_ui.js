@@ -1,4 +1,4 @@
-import {ilssrahFromBook} from '../../teststrings/testStrings.js'
+import {ilssrahFromBook} from '../../teststrings/teststrings.js'
 import { splitMonsterString } from '../utils/monster-string-searching.js'
 import { createMonsterStringObject } from '../utils/monster-parser.js'
 import { processMonster as createMonsterActor } from '../utils/import_into_fvtt.js'
