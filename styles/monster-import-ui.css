@@ -1,0 +1,124 @@
+.monster-import-ui-container {
+    display: flex;
+    justify-content: space-between;
+}
+.monster-import-ui-container .input-text{
+    height: 100%;
+    flex:5;
+}
+.monster-import-ui-container .input-text *,
+.monster-import-ui-container .input-text  *::before,
+.monster-import-ui-container .input-text  *::after{
+    box-sizing: border-box;
+}
+
+.monster-import-ui-container .input-text .highlights, .monster-import-ui-container .input-text textarea{
+    padding: 10px;
+    font-family: "Signika", sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;;
+}
+.monster-import-ui-container .input-text .highlight-container {
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    transform: translateZ(0);
+    -webkit-text-size-adjust: none;
+}
+.monster-import-ui-container .input-text .backdrop{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    border: 2px solid #685972;
+    background-color: #ffffff;
+    overflow: auto;
+    pointer-events: none;
+    transition: transform 1s;
+}
+.monster-import-ui-container .input-text .highlights{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: transparent;
+}
+.monster-import-ui-container .input-text textarea{
+    display: block;
+    position: absolute;
+    height:100%;
+    z-index: 2;
+    margin: 0;
+    border: 2px solid #74637f;
+    border-radius: 0;
+    color: #444444;
+    background-color: transparent;
+    overflow: auto;
+    resize: none;
+    transition: transform 1s;
+}
+.monster-import-ui-container .input-text mark{
+    border-radius: 3px;
+    color: transparent;
+    background-color: yellow;
+}
+.monster-import-ui-container .output-preview{
+    height:100%;
+    display:flex;
+    flex: 8;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.monster-import-ui-container .output-preview .import-buttons, 
+.monster-import-ui-container .output-preview .export-buttons{
+    display: flex;
+    flex-direction: row;
+    width: 100%
+}
+.monster-import-ui-container .output-preview .import-buttons *,
+.monster-import-ui-container .output-preview .export-buttons *{
+    flex: 1
+}
+.monster-import-ui-container .output-preview .monster-preview h4{
+    display: inline-block;
+    margin: 0;
+}
+.monster-import-ui-container .output-preview .monster-preview *{
+    margin-bottom: 4px;
+}
+.monster-import-ui-container .output-preview .monster-preview .skills span:not(:last-of-type):after,
+.monster-import-ui-container .output-preview .monster-preview .traits span:not(:last-of-type):after,
+.monster-import-ui-container .output-preview .monster-preview .items span:not(:last-of-type):after
+{
+    content: ', ';
+}
+.monster-import-ui-container .output-preview .monster-preview .item-image {
+    margin-right: 6px;
+    background-size: 16px;
+    background-repeat: no-repeat;
+    min-height: 16px;
+    line-height: 16px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+.monster-import-ui-container .error-messages{
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+.monster-import-ui-container .error-messages:empty{
+    display:none
+}
+/* .monster-import-ui-container .output-preview .splitStringPreview{
+    display:grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 1em;
+} */
+/* .monster-import-ui-container .output-preview .splitStringPreview .parseKey{
+} */
+/* .monster-import-ui-container .output-preview .splitStringPreview .content{
+    white-space: pre-line;
+} */

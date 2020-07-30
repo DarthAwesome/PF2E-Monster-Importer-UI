@@ -1,0 +1,156 @@
+<div class="name highlightable" data-mouseover="name"><h2>{{monster.name}}</h2></div>
+<div class="level highlightable" data-mouseover="level"><h4>Level</h4> {{monster.level}}</div>
+<div class="highlightable" data-mouseover="traits">
+    <span class="rarity"><h4>Rarity</h4> {{monster.rarity}}</span>
+    <span class="alignment"><h4>Alignment</h4> {{monster.alignment}}</span>
+    <span class="size"><h4>Size</h4> {{monster.size}}</span>
+
+    <span class="traits">
+        {{#each monster.traits as |trait id|}}
+            <span>{{trait.traitName}}</span>
+        {{/each}}
+    </span>
+</div>
+
+<div class="perception highlightable" data-mouseover="perception"><h4>Perception</h4> {{monster.perceptionMod}}; {{monster.perceptionText}}</div>
+
+<div class="languagesList highlightable" data-mouseover="languages"><h4>Languages</h4> {{monster.languagesList}}</div>
+<div class="skills highlightable" data-mouseover="skills"><h4>Skills</h4>
+    {{#each monster.skills as |skill id|}}
+        <span>{{skill.name}} {{skill.mod}}{{#if skill.skillDetails}} ({{skill.skillDetails}}){{/if}}</span>
+    {{/each}}
+</div>
+
+<div class="attributes highlightable" data-mouseover="attributes">
+    <span><b>Str: </b>{{monster.attributes.str}},</span>
+    <span><b>Dex: </b>{{monster.attributes.dex}},</span>
+    <span><b>Con: </b>{{monster.attributes.con}},</span>
+    <span><b>Int: </b>{{monster.attributes.int}},</span>
+    <span><b>Wis: </b>{{monster.attributes.wis}},</span>
+    <span><b>Cha: </b>{{monster.attributes.cha}}</span>
+</div>
+<hr>
+
+{{#if monster.items}}
+<div class="items highlightable" data-mouseover="items"><h4>Items</h4> 
+    {{#each monster.items as |item id|}}
+        <span>{{item.name}}{{#if item.itemDetails}} {{item.itemDetails}}{{/if}}</span>
+    {{/each}}
+</div>
+<hr>
+{{/if}}
+
+{{#if monster.interactionAbilities}}
+<div class="interactionAbilities highlightable" data-mouseover="interactionAbilities">
+    {{#each monster.interactionAbilities as |ability id|}}
+        <b>{{ability.name}}</b>{{getActionImage ability.actionCost}}
+        {{#if ability.traits}}
+            <span class="traits">({{#each ability.traits as |trait id|}}<span>{{trait}}</span>{{/each}})</span>
+        {{/if}}
+        <br>
+        {{{ability.actionText}}}
+        <hr>
+    {{/each}}
+</div>
+{{/if}}
+<div class="defenses"><h4>AC</h4>
+    <span class="AC highlightable" data-mouseover="AC">{{monster.AC}}{{#if monster.ACDetails}}; {{monster.ACDetails}}{{/if}};</span>
+    {{#each monster.saves as |save id|}}
+        <span class="{{save.name}} highlightable" data-mouseover="{{save.name}}"><b>{{save.name}}: </b>{{save.mod}}{{#if save.saveDetail}} {{save.saveDetail}}{{/if}}, </span>
+    {{/each}}
+</div>
+<div class="HP">
+    <h4>HP</h4>
+        <span class="highlightable" data-mouseover="HP"> {{monster.HP}}{{#if monster.HPDetails}}; {{monster.HPDetails}}{{/if}}</span>
+        {{#if monster.immunities}}<span class="immunities highlightable" data-mouseover="immunities"><b>Immunities</b> {{monster.immunities}}</span>{{/if}}
+        {{#if monster.weaknesses}}<span class="weaknesses highlightable" data-mouseover="weaknesses"><b>Weaknesses</b> {{monster.weaknesses}}</span>{{/if}}
+        {{#if monster.resistances}}<span class="resistances highlightable" data-mouseover="resistances"><b>Resistances</b> {{monster.resistances}}</span>{{/if}}
+    </div>
+
+{{#if monster.defensiveAbilities}}
+<div class="defensiveAbilities highlightable" data-mouseover="defensiveAbilities">
+    {{#each monster.defensiveAbilities as |ability id|}}
+        <b>{{ability.name}}</b>{{getActionImage ability.actionCost}}
+        {{#if ability.traits}}
+            <span class="traits">({{#each ability.traits as |trait id|}}<span>{{trait}}</span>{{/each}})</span>
+        {{/if}}
+        <br>
+        {{{ability.actionText}}}
+        <hr>
+    {{/each}}
+</div>
+{{/if}}
+<div class="speed highlightable" data-mouseover="speed"><h4>Speed</h4> {{monster.speed}};
+    {{#if monster.otherSpeeds}}
+        <span class="traits">
+            {{#each monster.otherSpeeds as |value type|}}
+                <span>{{type}} {{value}} </span>
+            {{/each}}
+        </span>
+    {{/if}}
+</div>
+<div class="attacks highlightable" data-mouseover="attacks">
+    {{#each monster.attackActions as |ability id|}}
+        <b>{{#if ability.isRanged}}Ranged{{else}}Melee{{/if}}</b>{{getActionImage ability.actionCost}}<span>{{ability.name}} {{ability.modifier}}</span>
+        {{#if ability.traits}}
+            <span class="traits">({{#each ability.traits as |trait id|}}<span>{{trait}}</span>{{/each}})</span>
+        {{/if}}
+        {{#if ability.damageRolls}}<span>, <b>Damage</b> </span>
+        {{else}}<span>, <b>Effect</b> </span>
+        {{/if}}
+        {{#if ability.damageRolls}}
+            <span class="damage items"> 
+                {{#each ability.damageRolls as |damage id|}}
+                    <span>{{damage}}</span>
+                {{/each}}
+            </span>
+        {{/if}}
+        {{#if ability.attackEffects}}
+            <span class="attackEffects items"> 
+                {{#each ability.attackEffects as |effect id|}}
+                    <span>{{effect}}</span>
+                {{/each}}
+            </span>
+        {{/if}}
+        <hr>
+    {{/each}}
+</div>
+{{#if monster.spellAbilities}}
+    <div class="spells highlightable" data-mouseover="spells">
+        {{#each monster.spellAbilities as |entry entryId|}}
+            <div>
+                <span><b>{{entry.name}}</b></span><span> DC {{entry.DC}}{{#if entry.attackMod}}, attack {{entry.attackMod}}{{/if}};</span>
+                {{#if entry.isFocus}}<span>({{entry.numFocusPoints}} Focus Points)</span>{{/if}}
+                {{#each entry.spellLevels as |spellLvl lvl|}}
+                <span>
+                    {{#unless entry.isRitual}}
+                        <b>{{spellLvl.level}}</b>
+                        {{#if entry.isSpontaneous}}
+                            <span> ({{numUses}} slots)</span>
+                        {{/if}}
+                    {{/unless}}
+                    <span class="items">
+                        {{#each spellLvl.spells as |spell spellId|}}
+                            <span>{{spell.spellName}}{{#if spell.detailText}} {{spell.detailText}}{{/if}}</span>
+                        {{/each}}
+                    </span>
+                </span>
+                {{/each}}
+            </div>
+            <hr>
+        {{/each}}
+    </div>
+{{/if}}
+{{#if monster.offensiveAbilities}}
+<div class="offensiveAbilities highlightable" data-mouseover="offensiveAbilities">
+    {{#each monster.offensiveAbilities as |ability id|}}
+        <b>{{ability.name}}</b>{{getActionImage ability.actionCost}}
+        {{#if ability.traits}}
+            <span class="traits">({{#each ability.traits as |trait id|}}<span>{{trait}}</span>{{/each}})</span>
+        {{/if}}
+        <br>
+        {{{ability.actionText}}}
+        <hr>
+    {{/each}}
+</div>
+{{/if}}

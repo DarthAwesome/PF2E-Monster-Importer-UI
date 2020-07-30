@@ -1,0 +1,30 @@
+{
+  "name": "pf2e_monsterimportui",
+  "version": "0.1.0",
+  "description": "FVTT module to provide UI for importing monsters",
+  "main": "src/index.js",
+  "dependencies": {
+    "foundry-pc-types": "^0.1.0",
+    "jest": "^26.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@types/jest": "^25.2.3",
+    "babel-jest": "^26.0.1"
+  },
+  "scripts": {
+    "test": "jest",
+    "test-coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/unindel/foundry-vtt-pf2e-monster-import-ui.git"
+  },
+  "author": "Farhan Siddiqi",
+  "license": "",
+  "bugs": {
+    "url": "https://gitlab.com/unindel/foundry-vtt-pf2e-monster-import-ui/issues"
+  },
+  "homepage": "https://gitlab.com/unindel/foundry-vtt-pf2e-monster-import-ui#readme"
+}

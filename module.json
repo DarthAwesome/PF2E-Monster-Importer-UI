@@ -1,0 +1,16 @@
+{
+	"name": "pf2e_monsterimportui",
+	"title": "Pathfinder 2e Monster Importing UI",
+	"description": "Provides a UI to import monsters into PF2E worlds",
+	"version": "1.0.0",
+	"minimumCoreVersion": "0.6.0",
+	"compatibleCoreVersion": "0.6.0",
+	"author": "Farhan Siddiqi",
+	"systems": ["pf2e"],
+	"scripts": ["scripts/anvil-menu.js"],
+	"esmodules": ["src/index.js"],
+	"styles": ["styles/monster-import-ui.css"],
+	"manifest": "https://gitlab.com/unindel/foundry-vtt-pf2e-monster-import-ui/-/raw/master/module.json",
+	"url": "https://gitlab.com/unindel/foundry-vtt-pf2e-monster-import-ui",
+	"download": "https://gitlab.com/unindel/foundry-vtt-pf2e-monster-import-ui/-/raw/master/releases/pf2e_monsterimportui-1.0.0.zip"
+}

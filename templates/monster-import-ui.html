@@ -1,0 +1,28 @@
+<div class="monster-import-ui-container">
+    <section class="input-text">
+        <div class="highlight-container">
+            <div class="backdrop">
+                <div class="highlights">
+
+                </div>
+            </div>
+            <textarea name="monster-input-text" class="monster-textarea">{{testString}}</textarea>
+        </div>
+    </section>
+    <section class="output-preview">
+        <!-- <button class="digest-data">Digest</button> -->
+        <div class="import-buttons">
+            <button class="import-monster">Import!</button>
+            <button class="delete-last-monster">Delete last created monster: <span class="monstername"></span></button>
+        </div>
+        <div class="export-buttons">
+            <button class="save-locally">Save monster JSON to browser</button>
+            <button class="export-json">Export <span class="num-monsters-saved">{{numMonstersInStorage}}</span> monsters to JSON</button>
+            <button class="clear-storage">Clear saved monsters</button>
+        </div>
+        <div class="error-messages"></div>
+        <div class="monster-preview">
+            
+        </div>
+    </section>
+</div>
